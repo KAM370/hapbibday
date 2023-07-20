@@ -579,7 +579,33 @@
   
 
     <canvas id="canvas"></canvas>
-    <div id="merrywrap" class="merryw30,
+    <div id="merrywrap" class="merrywrap">
+        <div class="giftbox">
+            <div class="cover">
+                <div></div>
+            </div>
+            <div class="box"></div>
+        </div>
+
+    </div>
+    <canvas id="c"></canvas>
+    <div id="balloon-container">
+    </div>
+  
+
+    <script>
+        var w = c.width = window.innerWidth,
+            h = c.height = window.innerHeight,
+            ctx = c.getContext('2d'),
+
+            hw = w / 2, // half-width
+            hh = h / 2,
+
+            opts = {
+                strings: ['HAPPY', 'BIRTHDAY!', 'KHÁNH NHUWW'],
+                charSize: 30,
+                charSpacing: 30,
+                lineHeight: 30,
 
                 cx: w / 2,
                 cy: h / 2,
