@@ -576,16 +576,14 @@
 </head>
 
 <body>
-    <audio autoplay>
-        <source src="meohappy.mp3" type="audio/mpeg">
-        <source src="meohappy.ogg" type="audio/mpeg">
-    </audio>
+    <audio id="myAudio" src="meohappy.mp3" autoplay loop></audio>
 
     <canvas id="canvas"></canvas>
     <div id="merrywrap" class="merrywrap">
         <div class="giftbox">
             <div class="cover">
-                <div></div>
+                <div>    
+                </div>
             </div>
             <div class="box"></div>
         </div>
@@ -597,7 +595,6 @@
 
     </div>
     
-
     <script>
         var w = c.width = window.innerWidth,
             h = c.height = window.innerHeight,
@@ -607,7 +604,7 @@
             hh = h / 2,
 
             opts = {
-                strings: ['HAPPY', 'BIRTHDAY!', 'KHÁNH NHUWW :))'],
+                strings: ['HAPPY', 'BIRTHDAY!', 'KHÁNH NHUWW:))'],
                 charSize: 30,
                 charSpacing: 30,
                 lineHeight: 30,
@@ -1334,15 +1331,20 @@ animation: float ${dur}s ease-in infinite
 `;
     }
 
-    function createBalloons(num) {
-        for (var i = num; i > 0; i--) {
-            var balloon = document.createElement("div");
-            balloon.className = "balloon";
-            balloon.style.cssText = getRandomStyles();
-            balloonContainer.append(balloon);
-        }
-    }
+function listen() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+}
 
+
+function createBalloons(num) {
+    for (var i = num; i > 0; i--) {
+        var balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.cssText = getRandomStyles();
+        balloonContainer.append(balloon);
+    }
+}
     // function removeBalloons() {
     //     balloonContainer.style.opacity = 0;
     //     setTimeout(() => {
@@ -1351,7 +1353,11 @@ animation: float ${dur}s ease-in infinite
     // }
 
     window.addEventListener("load", () => {
-        createBalloons(30)
+        createBalloons(60)
+    });
+
+    window.addEventListener("click", () => {
+        listen()
     });
 
     window.addEventListener("click", () => {
